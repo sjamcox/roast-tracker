@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from 'react'
 
-const Stopwatch = () => {
+const Stopwatch = ({ log }) => {
 
   const [ startTime, setStartTime ] = useState(0);
   const [ elapsed, setElapsed ] = useState(`0:00:00`);
   const [ isRunning, setIsRunning ] = useState(false)
 
+  const { milestones, setMilestones } = log
+
   const start = () => {
+    setMilestones({ ...milestones, startTime: new Date()})
     setStartTime(Date.now())
     setIsRunning(true)
   }
 
   const stop = () => {
     setIsRunning(false)
+    setMilestones({
+      ...milestones,
+      endTime: new Date(),
+      totalTime: elapsed
+    })
   }
 
   const formatTime = (mil) => {
@@ -29,7 +37,7 @@ const Stopwatch = () => {
     if (isRunning) {
       setTimeout(() => {
         setElapsed(formatTime(Date.now() - startTime))
-      }, 30)
+      }, 20)
     }
   }, [isRunning, elapsed])
 
