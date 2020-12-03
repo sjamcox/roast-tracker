@@ -16,7 +16,18 @@ const Stopwatch = ({ log }) => {
 
   const stop = () => {
     setIsRunning(false)
-    setMilestones({...milestones, endTime: new Date()})
+    setMilestones({...milestones, finalElapsed: elapsed})
+  }
+
+  const reset = () => {
+    setMilestones({
+      startTime: null,
+      timeElapsed: null,
+      firstCrack: null,
+      secondCrack: null,
+      finalElapsed: null,
+    })
+    setElapsed(`0:00:00`)
   }
 
   const formatTime = (mil) => {
@@ -33,7 +44,7 @@ const Stopwatch = ({ log }) => {
     if (isRunning) {
       const update = setTimeout(() => {
         setElapsed(formatTime(Date.now() - startTime))
-      }, 300)
+      }, 20)
       return () => clearTimeout(update)
     }
   }, [isRunning, elapsed])
@@ -46,7 +57,10 @@ const Stopwatch = ({ log }) => {
     <div className='stopwatch'>
       <h3>{elapsed}</h3>
       {!isRunning
-        ? <button onClick={() => start()}>Start</button>
+        ? <div>
+            <button onClick={() => start()}>Start</button>
+            <button onClick={() => reset()}>Reset</button>
+          </div>
         : <button onClick={() => stop()}>Stop</button>
       }
     </div>

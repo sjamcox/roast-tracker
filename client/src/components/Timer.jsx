@@ -5,11 +5,10 @@ const Timer = () => {
 
   const [ milestones, setMilestones ] = useState({
     startTime: null,
-    endTime: null,
     timeElapsed: null,
-    finalElapsed: null,
     firstCrack: null,
     secondCrack: null,
+    finalElapsed: null,
   })
 
   const handleCrack = (name) => {
