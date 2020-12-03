@@ -16,11 +16,7 @@ const Stopwatch = ({ log }) => {
 
   const stop = () => {
     setIsRunning(false)
-    setMilestones({
-      ...milestones,
-      endTime: new Date(),
-      totalTime: elapsed
-    })
+    setMilestones({...milestones, endTime: new Date()})
   }
 
   const formatTime = (mil) => {
@@ -40,6 +36,13 @@ const Stopwatch = ({ log }) => {
       }, 20)
     }
   }, [isRunning, elapsed])
+
+  useEffect(() => {
+    const saveTotalTime = setTimeout(() => {
+      setMilestones({...milestones, totalTime: elapsed})
+    }, 25)
+    return () => clearTimeout(saveTotalTime)
+  }, [elapsed])
 
   return (
     <div className='stopwatch'>
