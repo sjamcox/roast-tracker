@@ -36,8 +36,10 @@ const Stopwatch = () => {
   return (
     <div className='stopwatch'>
       <h3>{elapsed}</h3>
-      <button onClick={() => start()}>Start</button>
-      <button onClick={() => stop()}>Stop</button>
+      {!isRunning
+        ? <button onClick={() => start()}>Start</button>
+        : <button onClick={() => stop()}>Stop</button>
+      }
     </div>
   )
 }
