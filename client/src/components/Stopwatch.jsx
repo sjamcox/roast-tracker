@@ -31,17 +31,15 @@ const Stopwatch = ({ log }) => {
 
   useEffect(() => {
     if (isRunning) {
-      setTimeout(() => {
+      const update = setTimeout(() => {
         setElapsed(formatTime(Date.now() - startTime))
-      }, 20)
+      }, 300)
+      return () => clearTimeout(update)
     }
   }, [isRunning, elapsed])
 
   useEffect(() => {
-    const saveTotalTime = setTimeout(() => {
-      setMilestones({...milestones, totalTime: elapsed})
-    }, 25)
-    return () => clearTimeout(saveTotalTime)
+    setMilestones({...milestones, timeElapsed: elapsed})
   }, [elapsed])
 
   return (
