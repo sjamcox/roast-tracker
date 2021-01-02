@@ -1,0 +1,15 @@
+button {
+  padding: 20px;
+}
+
+input {
+  display: block;
+}
+
+select {
+  display: block;
+}
+
+textarea {
+  display: block;
+}
