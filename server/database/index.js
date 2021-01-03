@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV !== 'production') { require('dotenv').config() }
 
 const mongoose = require('mongoose')
-const db = mongoose.connect(process.env.DB_KEY, {})
+const db = mongoose.connect(process.env.DB_KEY, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const RoastSchema = new mongoose.Schema({
   roaster: String,
@@ -17,17 +17,12 @@ const RoastSchema = new mongoose.Schema({
 const Roast = mongoose.model('Roast', RoastSchema)
 
 const addRoast = async (data) => {
-  const created = await Roast.create({
-    roaster: data.roaster,
-    beanOrigin: data.beanOrigin,
-    ambientTemp: data.ambientTemp,
-    startTime: data.startTime,
-    firstCrack: data.firstCrack,
-    secondCrack: data.secondCrack,
-    totalTime: data.totalTime,
-    notes: data.notes,
-  })
-  return created
+  try {
+    const created = await Roast.create(data)
+    return created
+  } catch(err) {
+    console.error(err)
+  }
 }
 
 module.exports = {
