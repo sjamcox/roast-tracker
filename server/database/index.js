@@ -6,6 +6,7 @@ const db = mongoose.connect(process.env.DB_KEY, { useNewUrlParser: true, useUnif
 const RoastSchema = new mongoose.Schema({
   roaster: String,
   beanOrigin: String,
+  weight: String,
   ambientTemp: String,
   startTime: String,
   firstCrack: String,
@@ -16,15 +17,23 @@ const RoastSchema = new mongoose.Schema({
 
 const Roast = mongoose.model('Roast', RoastSchema)
 
+const getAllRoasts = async () => {
+  try {
+    return await Roast.find({})
+  } catch(err) {
+    console.error(err)
+  }
+}
+
 const addRoast = async (data) => {
   try {
-    const created = await Roast.create(data)
-    return created
+   return await Roast.create(data)
   } catch(err) {
     console.error(err)
   }
 }
 
 module.exports = {
+  getAllRoasts,
   addRoast
 }

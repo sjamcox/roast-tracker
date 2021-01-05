@@ -13,7 +13,13 @@ app.get('/', (req, res) => {
   res.sendFile('index.html')
 })
 
-app.post('/', (req, res) => {
+app.get('/roasts', (req, res) => {
+  db.getAllRoasts()
+    .then((data) => res.status(200).send(data))
+    .catch(() => res.status(500).send('Server error'))
+})
+
+app.post('/roasts', (req, res) => {
   db.addRoast(req.body)
     .then(() => res.status(201).send('Roast successfully added'))
     .catch(() => res.status(500).send('Server error'))
