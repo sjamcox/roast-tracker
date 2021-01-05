@@ -5,11 +5,29 @@ import RoastDataForm from './RoastDataForm'
 
 const App = () => {
 
+  const defaultState = {
+    roaster: '',
+    beanOrigin: '',
+    weight: '',
+    ambientTemp: '',
+    startTime: '',
+    firstCrack: '',
+    secondCrack: '',
+    totalTime: '',
+    notes: '',
+  }
+
+  const [ roastData, setRoastData ] = useState(defaultState)
+
+  const handleRoastUpdate = (key, value) => {
+    setRoastData({ ...roastData, [key]: value})
+  }
+
   return (
     <>
       <h1>Roast Tracker</h1>
-      <Timer />
-      <RoastDataForm />
+      <Timer data={roastData} update={handleRoastUpdate}/>
+      <RoastDataForm data={roastData} update={handleRoastUpdate}/>
     </>
   )
 }

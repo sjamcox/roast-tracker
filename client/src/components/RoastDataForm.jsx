@@ -1,23 +1,22 @@
 import React from 'react'
 
-const RoastDataForm = () => {
+const RoastDataForm = ({ data, update }) => {
   return (
     <form id='roast-data'>
-      <label for='model'>Roaster Model:</label>
-      <select form='roast-data' name='roaster-model'>
+      <label htmlFor='model'>Roaster Model:</label>
+      <select form='roast-data' name='roaster' onChange={(e) => update(e.target.name, e.target.value)}>
+        <option value={null}>Select a roaster ...</option>
         <option value='FreshRoast SR500'>FreshRoast SR500</option>
         <option value='FreshRoast SR540'>FreshRoast SR540</option>
       </select>
-      <label for='origin'>Origin:</label>
-      <input type='text' name='origin' />
-      <label for='region'>Region:</label>
-      <input type='text' name='region' />
-      <label for='grams'>Grams:</label>
-      <input type='text' name='grams' />
-      <label for='ambient-temp'>Ambient Temp:</label>
-      <input type='text' name='ambient-temp' />
-      <label for='notes'>Roasting Notes:</label>
-      <textarea name='notes' />
+      <label htmlFor='beanOrigin'>Bean Origin:</label>
+      <input type='text' name='beanOrigin' value={data.beanOrigin} onChange={(e) => update(e.target.name, e.target.value)}/>
+      <label htmlFor='weight'>Weight:</label>
+      <input type='text' name='weight' value={data.weight} onChange={(e) => update(e.target.name, e.target.value)}/>
+      <label htmlFor='ambientTemp'>Ambient Temp:</label>
+      <input type='text' name='ambientTemp' value={data.ambientTemp} onChange={(e) => update(e.target.name, e.target.value)}/>
+      <label htmlFor='notes'>Roasting Notes:</label>
+      <textarea name='notes' value={data.notes} onChange={(e) => update(e.target.name, e.target.value)}/>
     </form>
   )
 }
