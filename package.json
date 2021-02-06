@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "client-dev": "parcel src/index.html",
-    "build": "parcel build src/index.html",
-    "watch": "parcel watch src/index.html",
+    "start": "nodemon server/index.js",
+    "build": "parcel build client/src/index.html",
+    "watch": "parcel watch client/src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -20,7 +19,9 @@
     "parcel": "^1.12.4",
     "parcel-bundler": "^1.12.4",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-is": "^17.0.1",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
