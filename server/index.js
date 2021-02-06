@@ -6,12 +6,8 @@ const port = 3000
 const db = require('./database')
 const bodyParser = require('body-parser')
 
-app.use(express.static(path.join(__dirname, '/../client/dist')))
+app.use(express.static('./dist'))
 app.use(bodyParser.json())
-
-app.get('/', (req, res) => {
-  res.sendFile('index.html')
-})
 
 app.get('/roasts', (req, res) => {
   db.getAllRoasts()
