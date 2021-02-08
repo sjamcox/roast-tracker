@@ -7,7 +7,7 @@ const EntryContainer = styled.main`
   display: flex;
   justify-content: center;
   height: calc(100vh - 60px);
-  width: 100%
+  width: 100%;
 `
 
 const InnerEntryContainer = styled.div`
