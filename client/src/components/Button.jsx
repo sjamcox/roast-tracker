@@ -6,7 +6,7 @@ const Button = styled.button`
   border: none;
   border-radius: 24px;
   color: ${props => props.secondary ? 'black' : 'white'};
-  min-width: 192px;
+  width: 192px;
   margin-bottom: 16px;
   padding: 16px 24px;
 `
