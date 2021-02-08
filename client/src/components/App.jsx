@@ -2,15 +2,16 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import Header from './Header'
 import Entry from './Entry'
+import RoastForm from './RoastForm'
+import Countdown from './Countdown'
 import Stopwatch from './Stopwatch'
-import RoastDataForm from './RoastDataForm'
 
 const App = () => {
 
-  const defaultState = {
+  const initialState = {
     roaster: '',
     beanOrigin: '',
-    weight: '',
+    beanWeight: '',
     ambientTemp: '',
     startTime: '',
     firstCrack: null,
@@ -19,27 +20,23 @@ const App = () => {
     notes: '',
   }
 
-  const [ roastData, setRoastData ] = useState(defaultState)
+  const [ roastData, setRoastData ] = useState(initialState)
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setRoastData({
+      ...roastData,
+      [name]: value
+    })
+  }
 
   return (
     <>
       <Header />
-      <Entry />
-      {/* <RoastDataForm data={roastData} update={setRoastData}/>
       <Stopwatch data={roastData} update={setRoastData}/>
-      <div id='timer'>
-      <div>
-        {!roastData.firstCrack
-          ? <button name='firstCrack' onClick={(e) => handleCrack(e.target.name)}>First Crack</button>
-          : <p>First Crack: {roastData.firstCrack}</p>
-          }
-      </div>
-      <div>
-        {!roastData.secondCrack
-          ? <button name='secondCrack' onClick={(e) => handleCrack(e.target.name)}>Second Crack</button>
-          : <p>Second Crack: {roastData.secondCrack}</p>
-        }
-      </div> */}
+      <Entry />
+      <RoastForm data={roastData} update={handleChange} />
+      <Countdown />
     </>
   )
 }

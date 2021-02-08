@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
 
-const RoastFormContainer = styled.div`
+const RoastFormContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +31,7 @@ const RoastForm = ({ data, update }) => {
           type='text'
           value={data.roaster}
         />
-        <label htmlFor='roaster'>Bean Origin</label>
+        <label htmlFor='beanOrigin'>Bean Origin</label>
         <input
           id='beanOrigin'
           name='beanOrigin'
@@ -39,7 +39,7 @@ const RoastForm = ({ data, update }) => {
           type='text'
           value={data.beanOrigin}
         />
-        <label htmlFor='roaster'>Bean Weight</label>
+        <label htmlFor='beanWeight'>Bean Weight</label>
         <input
           id='beanWeight'
           name='beanWeight'
@@ -47,7 +47,7 @@ const RoastForm = ({ data, update }) => {
           type='text'
           value={data.beanWeight}
         />
-        <label htmlFor='roaster'>Ambient Temperature</label>
+        <label htmlFor='ambientTemp'>Ambient Temperature</label>
         <input
           id='ambientTemp'
           name='ambientTemp'
