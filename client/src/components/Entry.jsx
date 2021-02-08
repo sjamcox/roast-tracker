@@ -26,7 +26,7 @@ const Entry = () => {
     <EntryContainer>
       <InnerEntryContainer>
         <h2>Turn up the heat</h2>
-        <Button>Get Started</Button>
+        <Button>New Roast</Button>
         <Button secondary>Roast History</Button>
       </InnerEntryContainer>
     </EntryContainer>
