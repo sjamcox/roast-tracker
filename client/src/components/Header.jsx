@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const StyledHeader = styled.header`
   align-items: center;
+  background-color: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
   display: flex;
   height: 60px;
