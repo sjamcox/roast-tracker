@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Button from './Button'
+import { useHistory } from 'react-router-dom'
 
-const StopwatchContainer = styled.main`
+const RoastTimerContainer = styled.main`
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -28,7 +29,7 @@ const StopwatchContainer = styled.main`
   }
 `
 
-const Stopwatch = ({ data, update }) => {
+const RoastTimer = ({ data, update }) => {
 
   const initialState = {
     startTime: '',
@@ -48,6 +49,8 @@ const Stopwatch = ({ data, update }) => {
     setIsRunning(true)
   }
 
+  let history = useHistory()
+
   const stop = () => {
     setIsRunning(false);
     update({
@@ -55,6 +58,7 @@ const Stopwatch = ({ data, update }) => {
       ...progress,
       timeElapsed: formatTime(timeElapsed)
     })
+    history.push('/notes')
   }
 
   const formatTime = (mil) => {
@@ -88,7 +92,7 @@ const Stopwatch = ({ data, update }) => {
   }, [isRunning, timeElapsed])
 
   return (
-    <StopwatchContainer>
+    <RoastTimerContainer>
       <h2>{ formatTime(timeElapsed) }</h2>
       {!progress.firstCrack &&
         <>
@@ -118,8 +122,8 @@ const Stopwatch = ({ data, update }) => {
         <Button onClick={() => stop()}>End and Save</Button>
         <Button secondary onClick={() => {}}>Abort</Button>
       </div>
-    </StopwatchContainer>
+    </RoastTimerContainer>
   )
 }
 
-export default Stopwatch
+export default RoastTimer
