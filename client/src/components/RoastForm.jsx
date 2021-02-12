@@ -1,18 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
+import { Link } from 'react-router-dom'
 
-const RoastFormContainer = styled.main`
+const RoastFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 36px;
   width: auto;
   div {
     width: 100%
   }
   button {
-    margin-top: 36px;
+    margin-top: 18px;
   }
 `
 
@@ -56,7 +56,7 @@ const RoastForm = ({ data, update }) => {
           value={data.ambientTemp}
         />
       </div>
-      <Button>Start Roast</Button>
+      <Link to='countdown'><Button>Start Roast</Button></Link>
     </RoastFormContainer>
   )
 }
