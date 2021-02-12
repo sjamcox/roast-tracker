@@ -1,10 +1,19 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
-import Header from './Header'
+import Layout from './Layout'
 import Entry from './Entry'
 import RoastForm from './RoastForm'
 import Countdown from './Countdown'
-import Stopwatch from './Stopwatch'
+import RoastTimer from './RoastTimer'
+import RoastNotes from './RoastNotes'
+import RoastHistory from './RoastNotes'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 
 const App = () => {
 
@@ -16,7 +25,7 @@ const App = () => {
     startTime: '',
     firstCrack: null,
     secondCrack: null,
-    timeElapsed: '0:00:00',
+    timeElapsed: 0,
     notes: '',
   }
 
@@ -31,13 +40,31 @@ const App = () => {
   }
 
   return (
-    <>
-      <Header />
-      <Stopwatch data={roastData} update={setRoastData}/>
-      <Entry />
-      <RoastForm data={roastData} update={handleChange} />
-      <Countdown />
-    </>
+    <Router>
+      <Redirect to='/'/>
+      <Layout>
+        <Switch>
+          <Route path='/form'>
+            <RoastForm data={roastData} update={handleChange} />
+          </Route>
+          <Route path='/countdown'>
+            <Countdown />
+          </Route>
+          <Route path='/roast'>
+            <RoastTimer data={roastData} update={setRoastData}/>
+          </Route>
+          <Route path='/notes'>
+            <RoastNotes data={roastData} update={setRoastData} />
+          </Route>
+          <Route path='/history'>
+            <RoastHistory />
+          </Route>
+          <Route path='/'>
+            <Entry />
+          </Route>
+        </Switch>
+      </Layout>
+    </Router>
   )
 }
 
