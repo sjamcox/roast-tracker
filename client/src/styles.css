@@ -53,11 +53,21 @@ input {
   background-color: #EEEEEE;
   border: none;
   display: block;
-  height: 36px;
+  height: 30px;
   margin: 0 0 12px 0;
   width: 100%;
 }
 
 label {
   font-size: 1.6rem;
+}
+
+textarea {
+  background-color: #EEEEEE;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  height: 30vh;
+  padding: 10px;
+  resize: none;
+  width: calc(100% - 20px);
 }
