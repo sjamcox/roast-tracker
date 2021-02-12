@@ -1,16 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
+import { Link } from 'react-router-dom'
 
-const EntryContainer = styled.main`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  height: calc(100vh - 60px);
-  width: 100%;
-`
-
-const InnerEntryContainer = styled.div`
+const EntryContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -24,11 +17,9 @@ const InnerEntryContainer = styled.div`
 const Entry = () => {
   return (
     <EntryContainer>
-      <InnerEntryContainer>
-        <h2>Turn up the heat</h2>
-        <Button>New Roast</Button>
-        <Button secondary>Roast History</Button>
-      </InnerEntryContainer>
+      <h2>Turn up the heat</h2>
+      <Link to='/form'><Button>New Roast</Button></Link>
+      <Link to='/history'><Button secondary>Roast History</Button></Link>
     </EntryContainer>
   )
 }
