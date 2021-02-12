@@ -2,10 +2,12 @@ const express = require('express')
 
 const app = express()
 const path = require('path')
-const port = 3000
+const port = process.env.PORT || 3000
 const db = require('./database')
 const bodyParser = require('body-parser')
+var history = require('connect-history-api-fallback');
 
+app.use(history({ verbose: true, index: '/' }))
 app.use(express.static('./dist'))
 app.use(bodyParser.json())
 
