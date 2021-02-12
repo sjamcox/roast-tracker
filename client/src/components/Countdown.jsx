@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { Redirect } from 'react-router-dom'
 
-const CountdownContainer = styled.main`
+const CountdownContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -25,10 +26,8 @@ const Countdown = () => {
 
   useEffect(() => {
     const decrement = setTimeout(() => {
-      if (number > 1) {
+      if (number > 0) {
         setNumber(number - 1)
-      } else {
-        setNumber('GO')
       }
     }, 1300)
 
@@ -39,6 +38,7 @@ const Countdown = () => {
     <CountdownContainer>
       <h2>Get ready</h2>
       <p>{ number }</p>
+      {number === 0 && <Redirect to="/roast" />}
     </CountdownContainer>
   )
 }
