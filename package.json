@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
     "build": "parcel build client/src/index.html",
     "watch": "parcel watch client/src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
