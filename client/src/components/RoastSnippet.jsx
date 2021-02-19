@@ -17,7 +17,7 @@ const RoastSnippetContainer = styled.div`
   }
 `
 
-const RoastSnippet = ({ date, beanOrigin }) => {
+const RoastSnippet = ({ beanOrigin, date, id }) => {
 
   const day = new Date(Number(date)).toLocaleDateString()
 
@@ -27,7 +27,7 @@ const RoastSnippet = ({ date, beanOrigin }) => {
         <p>{ day }</p>
         <p>{ beanOrigin }</p>
       </div>
-      <Link to='#'><p>Details ...</p></Link>
+      <Link to={`/roast/${id}`}><p>Details ...</p></Link>
     </RoastSnippetContainer>
   )
 }
