@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const StyledHeader = styled.header`
   align-items: center;
@@ -21,7 +22,7 @@ const StyledHeader = styled.header`
 const Header = () => {
   return (
     <StyledHeader>
-      <h1>Roast Tracker</h1>
+      <Link to='/'><h1>Roast Tracker</h1></Link>
     </StyledHeader>
   )
 };
