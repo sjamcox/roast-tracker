@@ -72,3 +72,8 @@ textarea {
   resize: none;
   width: calc(100% - 20px);
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
