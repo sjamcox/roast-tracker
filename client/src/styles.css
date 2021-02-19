@@ -33,6 +33,7 @@ h1 {
 }
 
 h2 {
+  margin-top: 0;
   font-size: 5.063rem;
   font-weight: 700;
 }
