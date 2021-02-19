@@ -17,6 +17,14 @@ const RoastSchema = new mongoose.Schema({
 
 const Roast = mongoose.model('Roast', RoastSchema)
 
+const getRoast = async (_id) => {
+  try {
+    return await Roast.findOne({ _id })
+  } catch(err) {
+    console.error(err)
+  }
+}
+
 const getAllRoasts = async () => {
   try {
     return await Roast.find({})
@@ -34,6 +42,7 @@ const addRoast = async (data) => {
 }
 
 module.exports = {
+  getRoast,
   getAllRoasts,
   addRoast
 }

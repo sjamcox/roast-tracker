@@ -23,6 +23,12 @@ app.post('/roasts', (req, res) => {
     .catch(() => res.status(500).send('Server error'))
 })
 
+app.get('/roasts/:id', (req, res) => {
+  db.getRoast(req.params.id)
+    .then((data) => res.status(200).send(data))
+    .catch(() => res.status(500).send('Server Error'))
+})
+
 app.listen(port, () => {
   console.log(`Running on http://localhost:${port}`)
 })
