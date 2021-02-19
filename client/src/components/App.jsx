@@ -7,6 +7,7 @@ import Countdown from './Countdown'
 import RoastTimer from './RoastTimer'
 import RoastNotes from './RoastNotes'
 import RoastHistory from './RoastHistory'
+import RoastDetails from './RoastDetails'
 import {
   BrowserRouter as Router,
   Switch,
@@ -49,6 +50,9 @@ const App = () => {
           </Route>
           <Route path='/countdown'>
             <Countdown />
+          </Route>
+          <Route path='/roast/:id'>
+            <RoastDetails />
           </Route>
           <Route path='/roast'>
             <RoastTimer data={roastData} update={setRoastData}/>
