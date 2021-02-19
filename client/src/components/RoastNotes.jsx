@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Button from './Button'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const RoastNotesContainer = styled.div`
   display: flex;
@@ -32,6 +33,14 @@ const RoastNotes = ({ data, update }) => {
     }
   }
 
+  const handleSkip = async () => {
+    try {
+      const response = await axios.post('/roasts', data)
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   return (
     <RoastNotesContainer>
       <h2>Roasting notes
@@ -44,8 +53,8 @@ const RoastNotes = ({ data, update }) => {
           onChange={(e) => setNotes(e.target.value)}
         />
       </div>
-      <Button onClick={() => handleSubmit()}>Save Notes</Button>
-      <Button secondary>Skip</Button>
+      <Link to='/'><Button onClick={() => handleSubmit()}>Save Notes</Button></Link>
+      <Link to='/'><Button onClick={() => handleSkip()} secondary>Skip</Button></Link>
     </RoastNotesContainer>
   )
 }
