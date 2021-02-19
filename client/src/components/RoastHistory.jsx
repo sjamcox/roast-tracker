@@ -42,9 +42,10 @@ const RoastHistory = () => {
   const history = roasts.map(roast => {
     return (
       <RoastSnippet
-        key={roast.startTime}
-        date={roast.startTime}
         beanOrigin={roast.beanOrigin}
+        date={roast.startTime}
+        key={roast._id}
+        id={roast._id}
       />
     )
   })
