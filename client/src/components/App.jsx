@@ -6,7 +6,7 @@ import RoastForm from './RoastForm'
 import Countdown from './Countdown'
 import RoastTimer from './RoastTimer'
 import RoastNotes from './RoastNotes'
-import RoastHistory from './RoastNotes'
+import RoastHistory from './RoastHistory'
 import {
   BrowserRouter as Router,
   Switch,
