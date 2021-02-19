@@ -6,7 +6,7 @@ const db = mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useU
 const RoastSchema = new mongoose.Schema({
   roaster: String,
   beanOrigin: String,
-  weight: String,
+  beanWeight: String,
   ambientTemp: String,
   startTime: String,
   firstCrack: String,
